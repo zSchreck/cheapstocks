@@ -19,13 +19,14 @@ def load_stats_in_csv():
             json_format = json.loads(response)
             for key, value in json_format.iteritems():
                 value = value['quote']
-                pe_ratio = value['peRatio']
-                if pe_ratio is None:
-                    pe_ratio = 0
+                if value['peRatio'] is None:
+                    value['peRatio'] = 0
+                if value['marketCap'] < 10000000:
+                    continue
                 csv.write("{0},{1},{2},{3},{4},{5},{6},{7},{8}\n".format(key, value['companyName'],
                                                                          value['close'], value['sector'],
                                                                          value['avgTotalVolume'], value['marketCap'],
-                                                                         pe_ratio, value['week52High'],
+                                                                         value['peRatio'], value['week52High'],
                                                                          value['week52Low']))
             symbols_string = ''
     csv.close()
