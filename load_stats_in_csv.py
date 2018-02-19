@@ -1,9 +1,8 @@
 import requests
-from download_symbols import load_symbols_from_file
+import download_symbols
 import json
 
-symbols = load_symbols_from_file()
-
+symbols = download_symbols.load_symbols_from_file()
 iex_api_prefix = 'https://api.iextrading.com/1.0'
 
 

@@ -9,6 +9,12 @@ download_symbols.py downloads all available stock symbols for NYSE and NASDAQ(mo
 
 load_stats_in_csv.py loads all symbols from symbols.txt into a list and makes api calls to the IEX api to get requested financial information. Calls are made in batches of 100. The information is then saved into an csv file appropriately called cashmoney.csv to be analyzed in the future. 
 
+analyze_stocks.py uses pandas to read from cashmoney.csv and return stocks with certain criteria. It defaults to a P/E Ratio between 0 and 10, and market cap above 250 million. 
+
+Analyze stocks can take in 3 different parameters. -s takes in a string 'stock' and returns the associated data with this stock symbol if there is any. -s can not be run with any other flags. -pe takes in a number to search for stocks with a P/E ration under this number. 
+-mc also takes in a number, but to search for stocks with a market cap under this number. 
+
+An example to search for stocks with a P/E ratio under 17 with a market cap above 500 million would look like this: python analyze_stocks.py -pe 17 -mc 500000000. 
 
 Data provided for free by [IEX](https://iextrading.com/developer)
 
