@@ -2,7 +2,7 @@ import pandas as pd
 from sys import argv
 
 if __name__ == '__main__':
-    df = pd.read_csv("cashmoney.csv")
+    df = pd.read_csv("./data_files/cashmoney.csv")
     high_pe = 10
     market_cap = 250000000
     stock = None

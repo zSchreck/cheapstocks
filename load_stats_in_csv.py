@@ -2,11 +2,10 @@ import requests
 import download_symbols
 import json
 
-symbols = download_symbols.load_symbols_from_file()
-iex_api_prefix = 'https://api.iextrading.com/1.0'
-
 
 def load_stats_in_csv():
+    symbols = download_symbols.load_symbols_from_file()
+    iex_api_prefix = 'https://api.iextrading.com/1.0'
     csv = prepare_csv()
     symbols_string = ''
     for n in range(len(symbols)):
@@ -34,8 +33,8 @@ def load_stats_in_csv():
 
 
 def prepare_csv():
-    open("cashmoney.csv", "w").close()
-    csv = open("cashmoney.csv", "w")
+    open("./data_files/cashmoney.csv", "w").close()
+    csv = open("./data_files/cashmoney.csv", "w")
     csv.write("symbol,company,price,sector,avg_volume,market_cap,pe_ratio,week52high,week52low\n")
     return csv
 
