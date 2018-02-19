@@ -12,4 +12,4 @@ load_stats_in_csv.py loads all symbols from symbols.txt into a list and makes ap
 
 Data provided for free by [IEX](https://iextrading.com/developer)
 
-[API docs](https://iextrading.com/developer/docs/)
+[IEX API docs](https://iextrading.com/developer/docs/)
