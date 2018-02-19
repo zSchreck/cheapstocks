@@ -16,10 +16,9 @@ if __name__ == '__main__':
                     high_pe = float(argv[n + 2])
                 if argv[n + 1] == '-mc':
                     market_cap = float(argv[n + 2])
-        except IndexError:
+        except (IndexError, ValueError):
             print "Invalid arguments passed to function. Please refer to README.md for instructions."
-
-
+            exit()
     # print rows where pe ratio is between 0 and 'high_pe' and market cap is above 'market_cap'
     if stock:
         print df.loc[(df['symbol'] == stock)]
