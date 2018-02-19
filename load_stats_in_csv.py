@@ -19,10 +19,12 @@ def load_stats_in_csv():
             json_format = json.loads(response)
             for key, value in json_format.iteritems():
                 value = value['quote']
+
                 if value['peRatio'] is None:
                     value['peRatio'] = 0
                 if value['marketCap'] < 10000000:
                     continue
+
                 csv.write("{0},{1},{2},{3},{4},{5},{6},{7},{8}\n".format(key, value['companyName'],
                                                                          value['close'], value['sector'],
                                                                          value['avgTotalVolume'], value['marketCap'],
