@@ -10,4 +10,6 @@ download_symbols.py downloads all available stock symbols for NYSE and NASDAQ(mo
 load_stats_in_csv.py loads all symbols from symbols.txt into a list and makes api calls to the IEX api to get requested financial information. Calls are made in batches of 100. The information is then saved into an csv file appropriately called cashmoney.csv to be analyzed in the future. 
 
 
-API to retrieve financial data - https://iextrading.com/developer/docs/
+Data provided for free by [IEX](https://iextrading.com/developer)
+
+[API docs](https://iextrading.com/developer/docs/)
