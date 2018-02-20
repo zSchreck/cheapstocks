@@ -44,7 +44,7 @@ def get_data_by_pe(marketcap):
     return json.loads(dumped_str)
 
 
-@app.route("/v0/alldata/", methods=['GET'])
+@app.route("/v0/alldata", methods=['GET'])
 def get_data_by_pe():
     dumped_str = analyze_stocks.get_data_pe_mkcap(None, None)
     return json.loads(dumped_str)
