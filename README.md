@@ -11,7 +11,7 @@ load_stats_in_csv.py loads all symbols from symbols.txt into a list and makes ap
 
 analyze_stocks.py uses pandas to read from cashmoney.csv and return stocks with certain criteria. It defaults to a P/E Ratio between 0 and 10, and market cap above 250 million. 
 
-This is a chalice app that currently has three endpoints, '/test' just returns hello world and is used to make sure the app is up and running, '/v0/stocksymbol/{stocksymbol}' takes in a single stock ticker and returns information about that stock, and 'v0/stocksymbols/{stocksymbols}' takes in a comma separated list of stock tickers and returns information about those stocks.
+This is a chalice app that currently has three endpoints, '/test' just returns hello world and is used to make sure the app is up and running, '/v0/stocksymbol/{stocksymbol}' takes in a single stock ticker and returns information about that stock, and 'v0/stocksymbols/{stocksymbols}' takes in a comma separated list of stock tickers and returns information about those stocks. '/v0/peratio/{peratio}/marketcap/{marketcap}' returns stocks that are under P/E ratio peratio, and above Market Cap marketcap.
 
 Data provided for free by [IEX](https://iextrading.com/developer)
 
