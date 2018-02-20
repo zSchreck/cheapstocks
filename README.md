@@ -11,10 +11,7 @@ load_stats_in_csv.py loads all symbols from symbols.txt into a list and makes ap
 
 analyze_stocks.py uses pandas to read from cashmoney.csv and return stocks with certain criteria. It defaults to a P/E Ratio between 0 and 10, and market cap above 250 million. 
 
-Analyze stocks can take in 3 different parameters. -s takes in a string 'stock' and returns the associated data with this stock symbol if there is any. -s can not be run with any other flags. -pe takes in a number to search for stocks with a P/E ration under this number. 
--mc also takes in a number, but to search for stocks with a market cap under this number. 
-
-An example to search for stocks with a P/E ratio under 17 with a market cap above 500 million would look like this: python analyze_stocks.py -pe 17 -mc 500000000. 
+This is a chalice app that currently has three endpoints, '/test' just returns hello world and is used to make sure the app is up and running, '/v0/stocksymbol/{stocksymbol}' takes in a single stock ticker and returns information about that stock, and 'v0/stocksymbols/{stocksymbols}' takes in a comma separated list of stock tickers and returns information about those stocks.
 
 Data provided for free by [IEX](https://iextrading.com/developer)
 
