@@ -35,7 +35,7 @@ def load_stats_in_csv():
 
 
 def prepare_csv():
-    open("./data_files/cashmoney.csv", "w").close()
+    open("./chalicelib/data_files/cashmoney.csv", "w").close()
     csv = open("./data_files/cashmoney.csv", "w")
     csv.write("symbol,company,price,sector,avg_volume,market_cap,pe_ratio,week52high,week52low\n")
     return csv

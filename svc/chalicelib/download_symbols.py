@@ -19,7 +19,7 @@ def put_symbols_in_file(symbols):
                 if '/stockquote/{}/'.format(exchange) in link:
                     if link[13 + len(exchange):-4] not in symbols:
                         symbols.append(link[13 + len(exchange):-4])
-    text_file = open('./data_files/symbols.txt', 'w+')
+    text_file = open('./chalicelib/data_files/symbols.txt', 'w+')
 
     for symbol in symbols:
         text_file.write(symbol + '|')
@@ -27,7 +27,7 @@ def put_symbols_in_file(symbols):
 
 
 def load_symbols_from_file():
-    text_file = open('./data_files/symbols.txt', 'r')
+    text_file = open('./chalicelib/data_files/symbols.txt', 'r')
     text = text_file.read()
     symbols = filter(None, text.split('|'))
     text_file.close()
@@ -38,7 +38,7 @@ def sort_symbols_file():
     symbols = load_symbols_from_file()
     open('symbols.txt', 'w').close() #clear the text file
     symbols.sort()
-    text_file = open('./data_files/symbols.txt', 'w+')
+    text_file = open('./chalicelib/data_files/symbols.txt', 'w+')
     for symbol in symbols:
         text_file.write(symbol + '|')
     text_file.close()
