@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-alphabet = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K','L', 'M',
-            'O', 'P', 'Q', 'R', 'S','T', 'U', 'V', 'W', 'X', 'Y', 'Z')
+alphabet = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S','T', 'U', 'V', 'W', 'X', 'Y', 'Z')
 exchanges = ('NYSE', 'NASDAQ')
 
 
@@ -36,7 +36,7 @@ def load_symbols_from_file():
 
 def sort_symbols_file():
     symbols = load_symbols_from_file()
-    open('symbols.txt', 'w').close() #clear the text file
+    open('./chalicelib/data_files/symbols.txt', 'w').close() #clear the text file
     symbols.sort()
     text_file = open('./chalicelib/data_files/symbols.txt', 'w+')
     for symbol in symbols:
@@ -45,7 +45,7 @@ def sort_symbols_file():
 
 
 def main():
-    put_symbols_in_file(load_symbols_from_file())
+    put_symbols_in_file(list())
     sort_symbols_file()
 
 
