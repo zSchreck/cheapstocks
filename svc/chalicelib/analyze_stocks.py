@@ -34,40 +34,17 @@ def get_data_batch_stocks(stocksymbols):
 
 def get_data_pe_mkcap(peratio, marketcap):
     df = pd.read_csv("./chalicelib/data_files/cashmoney.csv")
-    stocks = df.loc[(df['pe_ratio'] > 0) & (df['pe_ratio'] < peratio) & (df['market_cap'] > marketcap)].values
+
+    if peratio is not None and marketcap is not None:
+        stocks = df.loc[(df['pe_ratio'] > 0) & (df['pe_ratio'] < peratio) & (df['market_cap'] > marketcap)].values
+    elif peratio is not None and marketcap is None:
+        stocks = df.loc[(df['pe_ratio'] > 0) & (df['pe_ratio'] < peratio)].values
+    else:
+        stocks = df.values
+
     stocks_data = dict()
     for stock in stocks:
         symbol = stock[0]
         stocks_data[symbol] = get_data_single_stock(symbol)
     return json.dumps(stocks_data)
 
-
-
-
-
-#
-# if __name__ == '__main__':
-#     df = pd.read_csv("./data_files/cashmoney.csv")
-#     high_pe = 10
-#     market_cap = 250000000
-#     stock = None
-#     if len(argv) > 1:
-#         try:
-#             for n in range(len(argv) - 1):
-#                 if argv[n + 1] == '-s':
-#                     stock = argv[n + 2].upper()
-#                     break
-#                 if argv[n + 1] == '-pe':
-#                     high_pe = float(argv[n + 2])
-#                 if argv[n + 1] == '-mc':
-#                     market_cap = float(argv[n + 2])
-#         except (IndexError, ValueError):
-#             print "Invalid arguments passed to function. Please refer to README.md for instructions."
-#             exit()
-#     # print rows where pe ratio is between 0 and 'high_pe' and market cap is above 'market_cap'
-#     if stock:
-#         print df.loc[(df['symbol'] == stock)]
-#     else:
-#         print df.loc[(df['pe_ratio'] > 0) & (df['pe_ratio'] < high_pe) & (df['market_cap'] > market_cap)]
-#
-#

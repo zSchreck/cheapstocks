@@ -30,3 +30,21 @@ def get_data_for_batch_stocks(stocksymbols):
 def get_data_by_pe_mkcap(peratio, marketcap):
     dumped_str = analyze_stocks.get_data_pe_mkcap(float(peratio), int(marketcap))
     return json.loads(dumped_str)
+
+
+@app.route("/v0/peratio/{peratio}", methods=['GET'])
+def get_data_by_pe(peratio):
+    dumped_str = analyze_stocks.get_data_pe_mkcap(float(peratio), None)
+    return json.loads(dumped_str)
+
+
+@app.route("/v0/marketcap/{marketcap}", methods=['GET'])
+def get_data_by_pe(marketcap):
+    dumped_str = analyze_stocks.get_data_pe_mkcap(None, int(marketcap))
+    return json.loads(dumped_str)
+
+
+@app.route("/v0/alldata/", methods=['GET'])
+def get_data_by_pe():
+    dumped_str = analyze_stocks.get_data_pe_mkcap(None, None)
+    return json.loads(dumped_str)
