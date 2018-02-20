@@ -1,6 +1,8 @@
-import requests
-import download_symbols
 import json
+
+import requests
+
+from svc.chalicelib import download_symbols
 
 
 def load_stats_in_csv():
