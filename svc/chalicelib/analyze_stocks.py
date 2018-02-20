@@ -39,6 +39,8 @@ def get_data_pe_mkcap(peratio, marketcap):
         stocks = df.loc[(df['pe_ratio'] > 0) & (df['pe_ratio'] < peratio) & (df['market_cap'] > marketcap)].values
     elif peratio is not None and marketcap is None:
         stocks = df.loc[(df['pe_ratio'] > 0) & (df['pe_ratio'] < peratio)].values
+    elif peratio is None and marketcap is not None:
+        stocks = df.loc[df['market_cap'] > marketcap].values
     else:
         stocks = df.values
 
