@@ -28,4 +28,5 @@ def get_data_for_batch_stocks(stocksymbols):
 
 @app.route("/v0/peratio/{peratio}/marketcap/{marketcap}", methods=['GET'])
 def get_data_by_pe_mkcap(peratio, marketcap):
-    return json.loads(analyze_stocks.get_data_pe_mkcap(float(peratio), int(marketcap)))
+    dumped_str = analyze_stocks.get_data_pe_mkcap(float(peratio), int(marketcap))
+    return json.loads(dumped_str)
