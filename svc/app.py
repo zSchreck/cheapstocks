@@ -22,4 +22,10 @@ def get_data_for_single_stock(stocksymbol):
 def get_data_for_batch_stocks(stocksymbols):
     if stocksymbols is None:
         raise BadRequestError("Stock symbol passed was null")
-    return json.loads(analyze_stocks.get_data_batch_stocks(stocksymbols.split(',')))
+    dumped_str = analyze_stocks.get_data_batch_stocks(stocksymbols.split(','))
+    return json.loads(dumped_str)
+
+
+@app.route("/v0/peratio/{peratio}/marketcap/{marketcap}", methods=['GET'])
+def get_data_by_pe_mkcap(peratio, marketcap):
+    return json.loads(analyze_stocks.get_data_pe_mkcap(float(peratio), int(marketcap)))

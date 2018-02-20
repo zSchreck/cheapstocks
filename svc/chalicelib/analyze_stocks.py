@@ -32,6 +32,18 @@ def get_data_batch_stocks(stocksymbols):
     return json.dumps(stocks_data)
 
 
+def get_data_pe_mkcap(peratio, marketcap):
+    df = pd.read_csv("./chalicelib/data_files/cashmoney.csv")
+    stocks = df.loc[(df['pe_ratio'] > 0) & (df['pe_ratio'] < peratio) & (df['market_cap'] > marketcap)].values
+    stocks_data = dict()
+    for stock in stocks:
+        symbol = stock[0]
+        stocks_data[symbol] = get_data_single_stock(symbol)
+    return json.dumps(stocks_data)
+
+
+
+
 
 #
 # if __name__ == '__main__':
