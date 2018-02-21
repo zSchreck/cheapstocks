@@ -39,12 +39,12 @@ def get_data_by_pe(peratio):
 
 
 @app.route("/v0/marketcap/{marketcap}", methods=['GET'])
-def get_data_by_pe(marketcap):
+def get_data_by_mkcap(marketcap):
     dumped_str = analyze_stocks.get_data_pe_mkcap(None, int(marketcap))
     return json.loads(dumped_str)
 
 
 @app.route("/v0/alldata", methods=['GET'])
-def get_data_by_pe():
+def get_data_for_all_stocks():
     dumped_str = analyze_stocks.get_data_pe_mkcap(None, None)
     return json.loads(dumped_str)
