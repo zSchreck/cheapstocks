@@ -3,7 +3,6 @@ import json
 
 
 def get_data_single_stock(stocksymbol):
-    stocksymbol = stocksymbol.upper()
     df = pd.read_csv("./chalicelib/data_files/cashmoney.csv")
     stock_data = dict()
     stock = df.loc[(df['symbol'] == stocksymbol)].values[0]
@@ -20,6 +19,7 @@ def get_data_single_stock(stocksymbol):
 
 
 def build_stock_dict(stocksymbol, stock_data):
+    stocksymbol= stocksymbol.upper()
     dumped_str = json.dumps({stocksymbol: stock_data})
     return dumped_str
 
@@ -27,6 +27,7 @@ def build_stock_dict(stocksymbol, stock_data):
 def get_data_batch_stocks(stocksymbols):
     stocks_data = dict()
     for stock in stocksymbols:
+        stock = stock.upper()
         stocks_data[stock] = get_data_single_stock(stock)
     return json.dumps(stocks_data)
 

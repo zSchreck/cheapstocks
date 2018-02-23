@@ -14,6 +14,7 @@ def test():
 def get_data_for_single_stock(stocksymbol):
     if stocksymbol is None:
         raise BadRequestError("Stock symbol passed was null")
+    stocksymbol = stocksymbol.upper()
     dumped_str = analyze_stocks.build_stock_dict(stocksymbol, analyze_stocks.get_data_single_stock(stocksymbol))
     return json.loads(dumped_str)
 
